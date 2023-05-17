@@ -28,7 +28,6 @@ class ClienteController extends Controller
         }  
   
         $cliente->nome = $request->input('nome');
-        $cliente->cpf = $request->input('cpf');
         $cliente->save();
         return redirect('cliente/listar');
       }

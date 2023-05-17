@@ -10,7 +10,7 @@ class FabricanteController extends Controller
    function listar() {
     $fabricantes = Fabricante::orderBy('nome')->get();
     return view('listagemFabricantes',
-      compact('Fabricantes') );
+      compact('fabricantes') );
   }
 
   function novo() {

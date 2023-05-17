@@ -13,6 +13,7 @@ class Compra extends Model
 {
     use HasFactory;
     protected $table = 'compra';
+    public $timestamps = false;
 
     protected $casts = ['created_at' => 'datetime: d-m-Y'];
 

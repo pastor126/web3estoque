@@ -13,6 +13,7 @@ class Produto extends Model
     use HasFactory;
 
     protected $table = 'produto';
+    public $timestamps = false;
 
     protected $casts = ['created_at' => 'datetime: d-m-Y'];
 

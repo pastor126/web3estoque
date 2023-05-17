@@ -22,11 +22,7 @@ class CompraRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titulo' => 'required',
-            'texto' => 'required',
-            'data' => 'required',
-            'categoria_id' => 'required|exists:categoria,id',
-            'autor_id' => 'required|exists:autor,id',
+            'quantidade' => 'required',
           ];
       }
   
@@ -34,9 +30,6 @@ class CompraRequest extends FormRequest
       {
           return [
               'quantidade.required' => 'O campo quantidade deve ser preenchido',
-              'cliente_id.required' => 'O campo cliente deve ser preenchido',
-              'produto_id.required' => 'O campo Produto deve ser preenchido',
-              'forma_pag_id.required' => 'O campo forma de pagamento deve ser preenchido',
           ];
       }
   }

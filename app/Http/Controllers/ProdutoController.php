@@ -65,7 +65,6 @@ class ProdutoController extends Controller
         $validated = $request->validate([
                 'descricao' => 'required',
                 'qtde_estoque' => 'required',
-                'valor_compra' => 'required',
                 'valor_venda' => 'required',
                 'fabricante_id' => 'required|exists:fabricante,id',
                 'tipo_id' => 'required|exists:tipo,id',

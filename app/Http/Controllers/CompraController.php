@@ -17,13 +17,12 @@ class CompraController extends Controller
       }
   
       function novo() {
-        $Compra = new Compra();
-        $Compra->id = 0;
-        $Compra->data = now();
+        $compra = new Compra();
+        $compra->id = 0;
         $clientes = Cliente::orderBy('nome')->get();
         $produtos = Produto::orderBy('descricao')->get();
-        $forma_pag = Forma_pag::orderBy('tipo')->get();
-        return view("frmCompra", compact('compra', 'clientes', 'produtos', 'forma_pag'));
+        $forma_pags = Forma_pag::orderBy('tipo')->get();
+        return view("frmCompra", compact('compra', 'clientes', 'produtos', 'forma_pags'));
       }
   
       function salvar(CompraRequest $request) {
@@ -75,6 +74,7 @@ class CompraController extends Controller
         $compra->produto_id = $request->input('produto_id');
         $compra->cliente_id = $request->input('cliente_id');
         $compra->forma_pag_id = $request->input('forma_pag_id');
+      
 
         $produto = Produto::find($request->input('produto_id'));
         $produto->qtde_estoque = $produto->qtde_estoque - $compra->quantidade;
@@ -105,8 +105,8 @@ class CompraController extends Controller
         
         $clientes = Cliente::orderBy('nome')->get();
         $produtos = Produto::orderBy('descricao')->get();
-        $forma_pag = Forma_pag::orderBy('tipo')->get();
-        return view("frmCompra", compact('compra', 'clientes', 'produtos', 'forma_pag'));
+        $forma_pags = Forma_pag::orderBy('tipo')->get();
+        return view("frmCompra", compact('compra', 'clientes', 'produtos', 'forma_pags'));
       }
   
       function excluir($id) {
