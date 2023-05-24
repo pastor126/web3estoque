@@ -11,9 +11,10 @@
     </div>
   @endif
 
-  @if($produto->figura != "")
-    <img style="width:150px;height:150px;object-fit:cover;border-radius:20px;border:1px solid gray;padding: 0.25rem" src="/storage/imagens/{{$compra->figura}}">
-  @endif
+  @if ($produto->figura != "")
+    <img style="width:150px;height:150px;object-fit:cover;border-radius:20px;border:1px solid gray;padding: 0.25rem" src="{{ Storage::url('imagens/'.$produto->figura) }}">
+@endif
+
 
 <h4>Cadastro de Produto</h4>
 <form action="{{url('produto/salvar')}}" method="post" enctype="multipart/form-data">
@@ -42,6 +43,12 @@
       <label for="descricao" class="form-label">Produto</label>
       <input type="text" class="form-control" id="descricao" value="{{$produto->descricao}}" name="descricao">
   </div>
+
+
+  <div class="mb-3">
+          <label for="arquivo" class="form-label">Figura</label>
+          <input type="file" class="form-control" id="arquivo" name="arquivo" accept="image/*" >
+      </div>
 
   <div class="mb-3">
       <label for="qtde_estoque" class="form-label">Estoque</label>

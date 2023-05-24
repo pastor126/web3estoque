@@ -15,7 +15,8 @@ class Produto extends Model
     protected $table = 'produto';
     public $timestamps = false;
 
-    protected $casts = ['created_at' => 'datetime: d-m-Y'];
+
+    protected $casts = ['data' => 'date: y-m-d'];
 
     public function fabricante(): BelongsTo
     {

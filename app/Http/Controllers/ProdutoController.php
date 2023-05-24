@@ -33,7 +33,7 @@ class ProdutoController extends Controller
           $produto = Produto::find($request->input('id'));
         }
         if ($request->hasFile('arquivo')) {
-          $arquivo = $request->file('arquivo');
+          $arquivo = $request->arquivo;
           $arquivoSalvo = $arquivo->store('public/imagens');
           $arquivoSalvo = explode("/", $arquivoSalvo);
           $tamanho = count($arquivoSalvo);
@@ -43,7 +43,7 @@ class ProdutoController extends Controller
           $produto->figura = $arquivoSalvo[$tamanho-1];
         }
   
-        $produto->data = $request->input('data');
+   
         $produto->descricao = $request->input('descricao');
         $produto->qtde_estoque = $request->input('qtde_estoque');
         $produto->valor_compra = $request->input('valor_compra');
@@ -76,8 +76,9 @@ class ProdutoController extends Controller
           $produto = Produto::find($request->input('id'));
         }
        
-        $produto->data = $request->input('data');
+      
         $produto->descricao = $request->input('descricao');
+        $produto->figura = $request->input('figura');
         $produto->qtde_estoque = $request->input('qtde_estoque');
         $produto->valor_compra = $request->input('valor_compra');
         $produto->valor_venda = $request->input('valor_venda');

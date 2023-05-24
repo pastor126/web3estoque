@@ -27,8 +27,10 @@
   <div  style="display: flex; align-items: center;">
     <select  style="width: 85%;" class="form-select  @error('cliente_id') is-invalid @enderror" id="cliente_id" name="cliente_id">
         @foreach($clientes as $cliente)
+        @if($cliente->ativo == true)
           <option {{$cliente->id==old('cliente_id',$compra->cliente_id)? 'selected':''}} value="{{$cliente->id}}">{{$cliente->nome}}</option>
-        @endforeach
+        @endif
+          @endforeach
       </select>
   
 
@@ -40,29 +42,37 @@
   <div class="mb-3">
     <label for="descricao" class="form-label" >Produto</label>
     <div  style="display: flex; align-items: center;">
-    <select style="width: 35%;" class="form-select  @error('produto_id') is-invalid @enderror" name="produto_id" id="produto_id">
+    <select style="width: 45%;" class="form-select  @error('produto_id') is-invalid @enderror" name="produto_id" id="produto_id">
     @foreach($produtos as $produto)
+     @if($produto->ativo == true)
     <option {{$produto->id==old('produto_id',$compra->produto_id)? 'selected':''}} value="{{$produto->id}}">{{$produto->descricao}} </option>
+    @endif
     @endforeach
       </select>
 
       <label style="width: 15%; padding: 1rem">Preço    R$</label>
-      <input readonly style="border: none; padding: 0;" type="text" class="form-control" id="preco" value="" name="preco">
-</div>
+      <input readonly style="border: none; padding: 0;" type="text" class="form-control" id="preco"  name="preco"> 
+
+    </div>
+    <img style="border: solid 1px black; border-radius: 10%; padding: 0;" id="figura"  name="figura"> 
     </div>
 <script>
     // Função para atualizar o preço quando a página é carregada
     function atualizarPreco() {
       var produtoId = document.querySelector('#produto_id').value;
-      var preco = 0;
+  
+    
 
       @foreach($produtos as $produto)
-        if ({{$produto->id}} == produtoId) {
-          preco = {{$produto->valor_venda}};
+        if ({{$produto->id}} == produtoId) {     
+          document.querySelector('#preco').value = {{$produto->valor_venda}};
+          document.querySelector('#figura').src = "{{ Storage::url('imagens/') }}" + '/' + "{{$produto->figura}}";
+
         }
       @endforeach
+      
 
-      document.querySelector('#preco').value = preco;
+      
     }
 
     // Chamar a função ao carregar a página
@@ -74,10 +84,12 @@
         var produtoId = this.value;
         var preco = 0;
 
-        // Localizar o preço do produto selecionado com base no ID do produto
+        // Localizar o preço e figura do produto selecionado com base no ID do produto
         @foreach($produtos as $produto)
             if ({{$produto->id}} == produtoId) {
                 preco = {{$produto->valor_venda}};
+                document.querySelector('#figura').src = "{{ Storage::url('imagens/') }}" + '/' + "{{$produto->figura}}";
+
             }
         @endforeach
 

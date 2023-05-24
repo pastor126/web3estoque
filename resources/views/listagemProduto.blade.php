@@ -10,6 +10,7 @@
           <th>Tipo</th>
           <th>Data</th>
           <th>Produto</th>
+          <th>Imagem</th>
           <th>Fabricante</th>
           <th>Quantidade</th>
           <th>Custo</th>
@@ -21,13 +22,19 @@
       <tbody>
           @foreach ($produtos as $produto)        
               @if($produto->ativo == true)
-                <td style="display: none"> {{$data = date("d/m/Y",  strtotime($produto->data))}}<td>
-              @endif
+             
+           
               <tr>
                 <td>{{$produto->id}}</td>
                 <td>{{$produto->tipo->nome_tipo}}</td>
-                <td>{{$data}}</td>
+                <td>{{$produto->data->format('d/m/Y')}}</td>
                 <td>{{$produto->descricao}}</td>
+                <td>
+            @if($produto->figura != "")
+              <img style="width:4rem;height:4rem;object-fit:contain" src="/storage/imagens/{{$produto->figura}}">
+            @endif
+          </td>
+
                 <td>{{$produto->fabricante->nome}}</td>
                 <td>{{$produto->qtde_estoque}}</td>
                 <td>{{$produto->valor_compra}}</td>
@@ -35,6 +42,7 @@
                 <td><a class="btn btn-warning btn-sm" href="editar/{{$produto->id}}">Editar</a></td>
                 <td><a class="btn btn-danger btn-sm" onclick="return confirm('Você deseja Excluir?')" href="excluir/{{$produto->id}}">Excluir</a></td>
               </tr>
+              @endif
          @endforeach
       </tbody>
     </table>
