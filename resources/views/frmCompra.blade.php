@@ -34,7 +34,7 @@
       </select>
   
 
-    <a class="btn btn-success ms-3"  href="{{url('cliente/listar')}}" >Novo Cliente</a>
+    <a class="btn btn-success ms-3"  href="{{url('cliente/novo')}}" >Novo Cliente</a>
     </div>  
   </div>
 

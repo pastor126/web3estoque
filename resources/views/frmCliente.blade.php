@@ -14,6 +14,6 @@
       </div>
 
       <button class="btn btn-primary btn-sm" type="submit" name="button">Salvar</button>
-      <a class="btn btn-success btn-sm"  href="{{url('cliente/listar')}}" >Voltar</a>
+      <a class="btn btn-success btn-sm"  href="{{url('compra/novo')}}" >Comprar</a>
     </form>
     @endsection

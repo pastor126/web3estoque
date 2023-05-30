@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
 
+
 class ClienteController extends Controller
 {
     function listar() {
@@ -29,7 +30,8 @@ class ClienteController extends Controller
   
         $cliente->nome = $request->input('nome');
         $cliente->save();
-        return redirect('cliente/listar');
+   
+        return redirect()->intended(url()->previous());
       }
   
       function editar($id) {

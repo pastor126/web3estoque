@@ -84,9 +84,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{url('produto/listar')}}">ESTOQUE</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
 
@@ -109,6 +107,28 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page"  href="{{url('cliente/listar')}}">Clientes</a>
         </li>
+    </ul>
+    <ul class="navbar-nav">
+    @guest
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ route('login') }}">Login</a>
+            </li>
+        @endguest
+      @auth
+        <li class="navbar-item ">
+                 <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                           <a class="nav-link active" aria-current="page"
+                           href="{{route('logout')}}"
+                                    onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                                Sair
+                            </a>
+                 </form>          
+        </li>
+      @endauth
+
 
       </ul>
     </div>
