@@ -17,8 +17,7 @@
           <th>Preço</th>
           <th>Total</th>
           <th>Forma Pag.</th>
-          <th>Editar</th>
-          <th>Excluir</th>
+     
         </tr>
       </thead>
       <tbody>
@@ -40,9 +39,10 @@
                 <td>{{$compra->preco}}</td>
                 <td>{{$compra->total}}</td>
                 <td>{{$compra->forma_pag->tipo}}</td>
+                @auth
                 <td><a class="btn btn-warning btn-sm" href="editar/{{$compra->id}}">Editar</a></td>
                 <td><a class="btn btn-danger btn-sm" onclick="return confirm('Você deseja Excluir?')" href="excluir/{{$compra->id}}">Excluir</a></td>
-
+                @endauth
               </tr>
          @endforeach
       </tbody>
