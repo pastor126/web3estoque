@@ -2,7 +2,9 @@
 
 @section('conteudo')
 <h4>Produtos</h4>
+@auth
     <a class="btn btn-primary mb-2 btn-sm" href="novo">Cadastrar</a>
+@endauth
     <table class="table table-striped table-hover table-bordered">
       <thead>
         <tr>
@@ -15,8 +17,7 @@
           <th>Quantidade</th>
           <th>Custo</th>
           <th>Preço</th>
-          <th>Editar</th>
-          <th>Excluir</th>
+        
         </tr>
       </thead>
       <tbody>
@@ -39,8 +40,10 @@
                 <td>{{$produto->qtde_estoque}}</td>
                 <td>{{$produto->valor_compra}}</td>
                 <td>{{$produto->valor_venda}}</td>
+        @auth
                 <td><a class="btn btn-warning btn-sm" href="editar/{{$produto->id}}">Editar</a></td>
                 <td><a class="btn btn-danger btn-sm" onclick="return confirm('Você deseja Excluir?')" href="excluir/{{$produto->id}}">Excluir</a></td>
+        @endauth
               </tr>
               @endif
          @endforeach

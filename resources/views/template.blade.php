@@ -114,20 +114,26 @@
                 <a class="nav-link active" href="{{ route('login') }}">Login</a>
             </li>
         @endguest
-      @auth
-        <li class="navbar-item ">
-                 <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+ 
+      <li class="navbar-item dropdown">
+    @auth
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ Auth::user()->name }}
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
+            <li>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="dropdown-item">{{ __('Log Out') }}</button>
+                </form>
+            </li>
+        </ul>
+    @endauth
+</li>
 
-                           <a class="nav-link active" aria-current="page"
-                           href="{{route('logout')}}"
-                                    onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                                Sair
-                            </a>
-                 </form>          
-        </li>
-      @endauth
+      
+   
 
 
       </ul>

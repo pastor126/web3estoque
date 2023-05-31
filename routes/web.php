@@ -8,6 +8,7 @@ use App\Http\Controllers\Forma_pagController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FabricanteController;
 use App\Http\Controllers\TipoController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 
 /*
@@ -35,7 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    
+    Route::post('password/reset', [ResetPasswordController::class, 'update'])->name('password.update');
+
+
+   
 
 Route::get('/produto/novo', [ProdutoController::class, 'novo']);
 
@@ -101,7 +105,11 @@ Route::get('/cliente/novo', [ClienteController::class, 'novo']);
 
 Route::post('/cliente/salvar', [ClienteController::class, 'salvar']);
 
-Route::get('/produto/listar', [ProdutoController::class, 'listar']);
+// Route::get('/produto/listar', [ProdutoController::class, 'listar']);
 Route::get('/produto/listar', [ProdutoController::class, 'listar'])->name('produto.listar');
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
