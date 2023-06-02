@@ -2,7 +2,7 @@
 
 @section('conteudo')
 <h4>Compras</h4>
-    <a class="btn btn-primary mb-2 btn-sm" href="novo">Cadastrar Compra</a>
+    <a class="btn btn-outline-primary mb-2 btn-sm" href="novo">Cadastrar Compra</a>
     <table class="table table-striped table-hover table-bordered">
     
     <thead>
@@ -40,8 +40,8 @@
                 <td>{{$compra->total}}</td>
                 <td>{{$compra->forma_pag->tipo}}</td>
                 @auth
-                <td><a class="btn btn-warning btn-sm" href="editar/{{$compra->id}}">Editar</a></td>
-                <td><a class="btn btn-danger btn-sm" onclick="return confirm('Você deseja Excluir?')" href="excluir/{{$compra->id}}">Excluir</a></td>
+                <td><a class="btn btn-outline-warning btn-sm" href="editar/{{$compra->id}}">Editar</a></td>
+                <td><a class="btn btn-outline-danger btn-sm" onclick="return confirm('Você deseja Excluir?')" href="excluir/{{$compra->id}}">Excluir</a></td>
                 @endauth
               </tr>
          @endforeach

@@ -13,7 +13,7 @@
           <input type="text" class="form-control" id="tipo" value="{{$forma_pag->tipo}}" name="tipo">
       </div>
 
-      <button class="btn btn-primary btn-sm" type="submit" name="button">Salvar</button>
-      <a class="btn btn-success btn-sm"  href="{{url('forma_pag/listar')}}" >Voltar</a>
+      <button class="btn btn-outline-primary btn-sm" type="submit" name="button">Salvar</button>
+      <a class="btn btn-outline-success btn-sm"  href="{{url('forma_pag/listar')}}" >Voltar</a>
     </form>
     @endsection

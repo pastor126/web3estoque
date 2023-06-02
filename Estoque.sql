@@ -5,7 +5,7 @@
 -- Dumped from database version 14.7
 -- Dumped by pg_dump version 14.7
 
--- Started on 2023-05-24 08:06:44
+-- Started on 2023-06-01 16:26:23
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -566,6 +566,11 @@ INSERT INTO public.cliente VALUES (2, 'Beltrano de Souza', false);
 INSERT INTO public.cliente VALUES (3, 'Ciclano Carrara', true);
 INSERT INTO public.cliente VALUES (6, 'Eu silva da Silva', true);
 INSERT INTO public.cliente VALUES (1, 'Fulano de Silva', true);
+INSERT INTO public.cliente VALUES (8, 'Abelardo Filho', true);
+INSERT INTO public.cliente VALUES (9, 'Abelardo Silva', true);
+INSERT INTO public.cliente VALUES (11, 'Eu silva', true);
+INSERT INTO public.cliente VALUES (15, 'José Lino', true);
+INSERT INTO public.cliente VALUES (16, 'Milenio Lino', true);
 
 
 --
@@ -578,6 +583,7 @@ INSERT INTO public.compra VALUES (14, NULL, 3, NULL, 3, 1, 3, 12);
 INSERT INTO public.compra VALUES (15, NULL, 1, NULL, 1, 2, 5, 150);
 INSERT INTO public.compra VALUES (16, NULL, 1, NULL, 6, 2, 4, 130);
 INSERT INTO public.compra VALUES (13, NULL, 1, NULL, 3, 3, 6, 18);
+INSERT INTO public.compra VALUES (17, NULL, 3, NULL, 8, 9, 4, 30);
 
 
 --
@@ -652,8 +658,8 @@ INSERT INTO public.migrations VALUES (5, '2023_05_21_132846_add_updated_at_to_pr
 
 INSERT INTO public.produto VALUES (7, 'prego 20mm', 100, 0.1, 0.4, 4, 3, '2022-02-14', false, NULL);
 INSERT INTO public.produto VALUES (8, 'Prego', 100, 0.2, 0.35, 4, 3, '2023-05-20', true, NULL);
-INSERT INTO public.produto VALUES (9, 'Alicate Turquesa', 10, 17, 30, 5, 1, '2023-05-21', true, 'Ejo1f0wkQ5Pf0RbbylcZodCWp5SwAGrV31tLRhm9.jpg');
 INSERT INTO public.produto VALUES (3, 'Alicate de corte 7''', 9, 14.5, 18, 1, 1, '2022-02-14', true, 'x3i0hN7dFFV7FqO5F8AoyZuYIJQrMWDnOXQuMm2N.jpg');
+INSERT INTO public.produto VALUES (9, 'Alicate Turquesa', 7, 17, 30, 5, 1, '2023-05-21', true, 'Ejo1f0wkQ5Pf0RbbylcZodCWp5SwAGrV31tLRhm9.jpg');
 INSERT INTO public.produto VALUES (4, 'Lixa d''àgua 300', 10, 0.4, 0.8, 2, 3, '2023-04-13', false, NULL);
 INSERT INTO public.produto VALUES (5, 'Parafuso 3 x 25', 250, 0.1, 0.25, 4, 3, '2023-04-13', false, NULL);
 INSERT INTO public.produto VALUES (1, 'Chave alen 3''', 7, 8, 12, 1, 1, '2023-04-05', true, 'TC9qu6iE7zAoPjOr7pKLH5PgdjBJ5p2l9LUTIKbw.jpg');
@@ -680,6 +686,7 @@ INSERT INTO public.tipo VALUES (5, 'Ferragens', true);
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.users VALUES (1, 'Eduardo', 'pastor126@gmail.com', NULL, '$2y$10$NAps7ocyNNjzoP7NbKvCvehlv61Z2nvQCBJw4ocicSPP3tJw5.IDq', '65Ge9eTDXCepiBBwXOaC7w8xsxJraK58BjJuevdWgt9nIafVZcxZUluYaF7t', '2023-05-25 13:27:24', '2023-05-30 23:29:37');
 
 
 --
@@ -688,7 +695,7 @@ INSERT INTO public.tipo VALUES (5, 'Ferragens', true);
 -- Name: cliente_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.cliente_id_seq', 6, true);
+SELECT pg_catalog.setval('public.cliente_id_seq', 16, true);
 
 
 --
@@ -697,7 +704,7 @@ SELECT pg_catalog.setval('public.cliente_id_seq', 6, true);
 -- Name: compra_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.compra_id_seq', 16, true);
+SELECT pg_catalog.setval('public.compra_id_seq', 17, true);
 
 
 --
@@ -769,7 +776,7 @@ SELECT pg_catalog.setval('public.tipo_id_seq', 5, true);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, false);
+SELECT pg_catalog.setval('public.users_id_seq', 1, true);
 
 
 --
@@ -906,7 +913,7 @@ ALTER TABLE ONLY public.users
 CREATE INDEX personal_access_tokens_tokenable_type_tokenable_id_index ON public.personal_access_tokens USING btree (tokenable_type, tokenable_id);
 
 
--- Completed on 2023-05-24 08:06:44
+-- Completed on 2023-06-01 16:26:24
 
 --
 -- PostgreSQL database dump complete

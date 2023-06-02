@@ -3,7 +3,7 @@
 @section('conteudo')
 <h4>Produtos</h4>
 @auth
-    <a class="btn btn-primary mb-2 btn-sm" href="novo">Cadastrar</a>
+    <a class="btn btn-outline-primary mb-2 btn-sm" href="novo">Cadastrar</a>
 @endauth
     <table class="table table-striped table-hover table-bordered">
       <thead>
@@ -41,8 +41,8 @@
                 <td>{{$produto->valor_compra}}</td>
                 <td>{{$produto->valor_venda}}</td>
         @auth
-                <td><a class="btn btn-warning btn-sm" href="editar/{{$produto->id}}">Editar</a></td>
-                <td><a class="btn btn-danger btn-sm" onclick="return confirm('Você deseja Excluir?')" href="excluir/{{$produto->id}}">Excluir</a></td>
+                <td><a class="btn btn-outline-warning btn-sm" href="editar/{{$produto->id}}">Editar</a></td>
+                <td><a class="btn btn-outline-danger btn-sm" onclick="return confirm('Você deseja Excluir?')" href="excluir/{{$produto->id}}">Excluir</a></td>
         @endauth
               </tr>
               @endif

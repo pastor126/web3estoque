@@ -91,7 +91,7 @@
       <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{url('compra/listar')}}">COMPRAS</a>
       </li>
-
+      @auth
       <li class="nav-item">
           <a class="nav-link active" aria-current="page"  href="{{url('tipo/listar')}}" >Tipo</a>
       </li>  
@@ -107,6 +107,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page"  href="{{url('cliente/listar')}}">Clientes</a>
         </li>
+        @endauth
     </ul>
     <ul class="navbar-nav">
     @guest

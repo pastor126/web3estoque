@@ -125,8 +125,8 @@
       </select>
   </div>
 
-  <button class="btn btn-primary btn-sm" type="submit" name="button">Salvar</button>
-  <a class="btn btn-success btn-sm"  href="{{url('compra/listar')}}" >Voltar</a>
+  <button class="btn btn-outline-primary btn-sm" type="submit" name="button">Salvar</button>
+  <a class="btn btn-outline-success btn-sm"  href="{{url('compra/listar')}}" >Voltar</a>
 
   <script>
   document.querySelector('form').addEventListener('submit', function(event) {

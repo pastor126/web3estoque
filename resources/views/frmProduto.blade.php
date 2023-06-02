@@ -79,7 +79,7 @@
   </div>
 
 
-  <button class="btn btn-primary btn-sm" type="submit" name="button">Salvar</button>
-  <a class="btn btn-success btn-sm"  href="{{url('produto/listar')}}" >Voltar</a>
+  <button class="btn btn-outline-primary btn-sm" type="submit" name="button">Salvar</button>
+  <a class="btn btn-outline-success btn-sm"  href="{{url('produto/listar')}}" >Voltar</a>
 </form>
 @endsection

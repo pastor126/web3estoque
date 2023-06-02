@@ -19,6 +19,7 @@ class CompraController extends Controller
       function novo() {
         $compra = new Compra();
         $compra->id = 0;
+        $compra->data = now();
         $clientes = Cliente::orderBy('nome')->get();
         $produtos = Produto::orderBy('descricao')->get();
         $forma_pags = Forma_pag::orderBy('tipo')->get();
@@ -33,7 +34,6 @@ class CompraController extends Controller
         }
         
   
-        $compra->data = $request->input('data');
         $compra->quantidade = $request->input('quantidade');
         $compra->preco = $request->input('preco');
         $compra->produto_id = $request->input('produto_id');
