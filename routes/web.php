@@ -67,7 +67,7 @@ Route::get('/cliente/listar', [ClienteController::class, 'listar']);
 
 Route::get('/cliente/editar/{id}', [ClienteController::class, 'editar']);
 
-Route::get('/cliente/excluir/{ID}', [ClienteController::class, 'excluir']);
+Route::get('/cliente/excluir/{id}', [ClienteController::class, 'excluir']);
 
 Route::get('/fabricante/listar', [FabricanteController::class, 'listar']);
 
@@ -77,7 +77,7 @@ Route::post('/fabricante/salvar', [FabricanteController::class, 'salvar']);
 
 Route::get('/fabricante/editar/{id}', [FabricanteController::class, 'editar']);
 
-Route::get('/fabricante/excluir/{ID}', [FabricanteController::class, 'excluir']);
+Route::get('/fabricante/excluir/{id}', [FabricanteController::class, 'excluir']);
 
 Route::get('/tipo/listar', [TipoController::class, 'listar']);
 
@@ -87,11 +87,11 @@ Route::post('/tipo/salvar', [TipoController::class, 'salvar']);
 
 Route::get('/tipo/editar/{id}', [TipoController::class, 'editar']);
 
-Route::get('/tipo/excluir/{ID}', [TipoController::class, 'excluir']);
+Route::get('/tipo/excluir/{id}', [TipoController::class, 'excluir']);
 
 Route::get('/compra/editar/{id}', [CompraController::class, 'editar']);
 
-Route::get('/compra/excluir/{ID}', [CompraController::class, 'excluir']);
+Route::get('/compra/excluir/{id}', [CompraController::class, 'excluir']);
 
 });
 

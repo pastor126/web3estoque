@@ -29,5 +29,5 @@
 
       </tbody>
     </table>
-    <a class="btn btn-success btn-sm"  href="produto/listar" >Estoque</a>
+    <a class="btn btn-success btn-sm"  href="{{url('produto/listar')}}" >Estoque</a>
     @endsection  
