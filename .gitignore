@@ -19,4 +19,4 @@ yarn-error.log
 /.vscode
 
 # Ignorar pasta public/storage
-public/storage
+/public/storage
