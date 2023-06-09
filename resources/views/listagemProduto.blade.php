@@ -15,7 +15,9 @@
           <th>Imagem</th>
           <th>Fabricante</th>
           <th>Quantidade</th>
+          @auth
           <th>Custo</th>
+          @endauth
           <th>Preço</th>
         
         </tr>
@@ -38,7 +40,9 @@
 
                 <td>{{$produto->fabricante->nome}}</td>
                 <td>{{$produto->qtde_estoque}}</td>
+                @auth
                 <td>{{$produto->valor_compra}}</td>
+                @endauth
                 <td>{{$produto->valor_venda}}</td>
         @auth
                 <td><a class="btn btn-outline-warning btn-sm" href="editar/{{$produto->id}}">Editar</a></td>
