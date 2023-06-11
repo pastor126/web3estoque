@@ -6,8 +6,9 @@ use App\Models\Fabricante;
 use App\Models\Tipo;
 use App\Models\Produto;
 use App\Http\Requests\ProdutoRequest;
-use Illuminate\Support\Facades\Storage;
+//use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Storage;
 
 
 class ProdutoController extends Controller
