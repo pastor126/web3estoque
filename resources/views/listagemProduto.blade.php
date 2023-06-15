@@ -4,6 +4,7 @@
 <h4>Produtos</h4>
 @auth
     <a class="btn btn-outline-primary mb-2 btn-sm" href="novo">Cadastrar</a>
+    <a class="btn btn-outline-success mb-2 btn-sm" href="relatorio">Relatório</a>
 @endauth
     <table class="table table-striped table-hover table-bordered">
       <thead>

@@ -8,13 +8,13 @@ use App\Models\Produto;
 use App\Http\Requests\ProdutoRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class ProdutoController extends Controller
 {
     function listar() {
-        $produtos = Produto::orderBy('descricao')->get();
+        $produtos = Produto::orderBy( 'descricao')->get();
         return view('listagemProduto', compact('produtos'));
       }
   
@@ -113,6 +113,12 @@ class ProdutoController extends Controller
         $produto->update();
 
         return redirect('produto/listar');
+      }
+
+      function relatorio() {
+        $produtos = Produto::orderBy('descricao')->get();
+        $pdf = Pdf::loadView('relatorioProduto', compact('produtos'));
+        return $pdf->download('produtos.pdf');
       }
   }
   

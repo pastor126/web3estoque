@@ -49,6 +49,8 @@ Route::get('/produto/editar/{id}', [ProdutoController::class, 'editar']);
 
 Route::get('/produto/excluir/{ID}', [ProdutoController::class, 'excluir']);
 
+Route::get('/produto/relatorio', [ProdutoController::class, 'relatorio']);
+
 
 
 Route::get('/forma_pag/listar', [Forma_pagController::class, 'listar']);
