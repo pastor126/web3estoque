@@ -35,7 +35,7 @@
                 <td>{{$produto->descricao}}</td>
                 <td>
             @if($produto->figura != "")
-              <img style="width:4rem;height:4rem;object-fit:contain" src="/storage/imagens/{{$produto->figura}}">
+              <img style="width:6rem;height:6rem;object-fit:contain" src="/storage/imagens/{{$produto->figura}}">
             @endif
           </td>
 
